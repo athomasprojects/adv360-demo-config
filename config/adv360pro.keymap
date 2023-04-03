@@ -8,9 +8,26 @@
 /* definitions for mouse layer */
 #include "mouse.dtsi"
 
+
 #define ___ &trans
 
+#define MO_TOG(layer) &mo_tog layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
+
 / {
+
+  behaviors {
+    mo_tog: behavior_mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            label = "mo_tog";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&tog>;
+        };
+    };
+
+
+
     /* remove unused keys from layout and move thumb cluster to bottom */
     chosen {
         zmk,matrix_transform = &urobs_transform;
@@ -28,7 +45,7 @@
                 &mo 2     &kp GRAVE &kp CAPS  &kp LEFT  &kp RIGHT                                              &kp UP    &kp DOWN  &kp LBKT  &kp RBKT  &mo 2
                                                                   &kp LCTRL &kp LALT       &kp LGUI  &kp RCTRL
                                                         &kp BSPC  &kp DEL   &kp HOME       &kp PG_UP &kp ENTER &kp SPACE
-                                                                            &kp END        &kp PG_DN
+                                                                            MO_TOG(2)      &kp PG_DN
             >;
         };
 
