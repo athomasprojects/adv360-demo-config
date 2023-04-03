@@ -5,221 +5,86 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/backlight.h>
 
-/* leds and backlights */
-#include <dt-bindings/zmk/rgb.h>
-#include <dt-bindings/zmk/backlight.h>
-
 /* definitions for mouse layer */
 #include "mouse.dtsi"
 
-/* hepler functions */
-// #include "../zmk-nodefree-config/helper.h"
-
 #define ___ &trans
 
-#define COLEMAK 0
-#define VIMNAV 1
-#define KEYPAD 2
-#define FN 3
-#define MOD 4
-#define MS 5
-#define QWERTY 6
+/ {
+    /* remove unused keys from layout and move thumb cluster to bottom */
+    chosen {
+        zmk,matrix_transform = &urobs_transform;
+    };
 
-#define MO_TOG(layer) &mo_tog layer base_layer
+    keymap {
+        compatible = "zmk,keymap";
 
-ZMK_BEHAVIOR(mo_tog, hold_tap,
-        label = "mo_tog";
-        flavor = "hold-preferred";
-        tapping-term-ms = <200>;
-        bindings = <&mo>, <&tog>;
-)
+        base_layer {
+            bindings = <
+                &kp EQUAL &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &tog 1         &mo 3     &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS
+                &kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp T     &tog 4         &none     &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
+                &kp ESC   &kp A     &kp S     &kp D     &kp F     &kp G     &none          &none     &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
+                &kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B                              &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT
+                &mo 2     &kp GRAVE &kp CAPS  &kp LEFT  &kp RIGHT                                              &kp UP    &kp DOWN  &kp LBKT  &kp RBKT  &mo 2
+                                                                  &kp LCTRL &kp LALT       &kp LGUI  &kp RCTRL
+                                                        &kp BSPC  &kp DEL   &kp HOME       &kp PG_UP &kp ENTER &kp SPACE
+                                                                            &kp END        &kp PG_DN
+            >;
+        };
 
-ZMK_BEHAVIOR(gpipe, mod_morph,
-      label = "grave_pipe";
-      bindings = <&kp GRAVE>, <&kp PIPE>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-  )
+        keypad {
+            bindings = <
+                ___       ___       ___       ___       ___       ___       ___            ___       ___       &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY ___
+                ___       ___       ___       ___       ___       ___       ___            ___       ___       &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    ___
+                ___       ___       ___       ___       ___       ___       ___            ___       ___       &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     ___
+                ___       ___       ___       ___       ___       ___                                ___       &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    ___
+                ___       ___       ___       ___       ___                                                    &kp KP_N0  ___          &kp KP_DOT    ___             ___
+                                                                  ___       ___            ___       ___
+                                                        ___       ___       ___            ___       ___       ___
+                                                                            ___            ___
+            >;
+        };
 
-ZMK_BEHAVIOR(ppipe, mod_morph,
-      label = "pipe_pipe";
-      bindings = <&kp PIPE>, <&kp PIPE>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
+        fn {
+            bindings = <
+                &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6    ___            ___       &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
+                ___       ___       ___       ___       ___       ___       ___            ___       ___       ___       ___       ___       ___       ___
+                ___       ___       ___       ___       ___       ___       ___            ___       ___       ___       ___       ___       ___       ___
+                ___       ___       ___       ___       ___       ___                                ___       ___       ___       ___       ___       ___
+                ___       ___       ___       ___       ___                                                    ___       ___       ___       ___       ___
+                                                                  ___       ___            ___       ___
+                                                        ___       ___       ___            ___       ___       ___
+                                                                            ___            ___
+            >;
+        };
 
-ZMK_BEHAVIOR(pkp_n1, mod_morph,
-      label = "plus_kp_n1";
-      bindings = <&kp PLUS>, <&kp KP_N1>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
+        mod {
+            bindings = <
+                ___       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3    &bt BT_SEL 4 ___              ___         &bt BT_SEL 0 &bt BT_SEL 1     &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 ___
+                ___       ___          ___          ___          ___             ___          &bootloader      &bootloader ___          ___              ___          ___          ___          ___
+                ___       ___          ___          ___          ___             ___          ___              ___         ___          ___              ___          ___          ___          ___
+                ___       ___          ___          ___          ___             ___                                       ___          ___              ___          ___          ___          ___
+                ___       ___          ___          &bl BL_INC   &bl BL_DEC                                                             &bl BL_INC       &bl BL_DEC   ___          ___          ___
+                                                                                 &bt BT_CLR   &bt BT_CLR       &bt BT_CLR  &bt BT_CLR
+                                                                 &rgb_ug RGB_TOG &bl BL_TOG   ___              ___         &bl BL_TOG   &rgb_ug RGB_TOG
+                                                                                              ___              ___
+            >;
+        };
 
-ZMK_BEHAVIOR(lkp_n2, mod_morph,
-      label = "left_bracket_kp_n2";
-      bindings = <&kp LEFT_BRACKET>, <&kp KP_N2>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
+        mouse {
+            bindings = <
+                ___       ___       ___       ___       ___       ___       ___            ___       ___       ___       ___       ___       ___       ___
+                ___       ___       ___       ___       ___       ___       ___            ___       ___       ___       ___       ___       ___       ___
+                ___       ___       ___       ___       ___       ___       ___            ___       ___       ___       ___       ___       ___       ___
+                ___       ___       ___       ___       ___       ___                                ___       ___       ___       ___       ___       ___
+                ___       ___       ___       U_MS_L    U_MS_R                                                 U_MS_U    U_MS_D    ___       ___       ___
+                                                                  U_BTN3    ___            ___       U_BTN3
+                                                        U_BTN1    U_BTN2    U_WH_L         U_WH_U    U_BTN2    U_BTN1
+                                                                            U_WH_R         U_WH_D
+            >;
+        };
 
-ZMK_BEHAVIOR(lkp_n3, mod_morph,
-      label = "left_brace_kp_n3";
-      bindings = <&kp LEFT_BRACE>, <&kp KP_N3>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
+    };
 
-ZMK_BEHAVIOR(lkp_n4, mod_morph,
-      label = "left_parenthesis_kp_n4";
-      bindings = <&kp LEFT_PARENTHESIS>, <&kp KP_N4>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
-
-ZMK_BEHAVIOR(akp_n5, mod_morph,
-      label = "amps_kp_n5";
-      bindings = <&kp AMPS>, <&kp KP_N5>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
-
-ZMK_BEHAVIOR(ekp_n6, mod_morph,
-      label = "equal_kp_n6";
-      bindings = <&kp EQUAL>, <&kp KP_N6>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
-
-ZMK_BEHAVIOR(rkp_n7, mod_morph,
-      label = "right_parenthesis_kp_n7";
-      bindings = <&kp RIGHT_PARENTHESIS>, <&kp KP_N7>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
-
-ZMK_BEHAVIOR(rkp_n8, mod_morph,
-      label = "right_brace_kp_n8";
-      bindings = <&kp RIGHT_BRACE>, <&kp KP_N8>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
-
-ZMK_BEHAVIOR(rkp_n9, mod_morph,
-      label = "right_bracket_kp_n9";
-      bindings = <&kp RIGHT_BRACKET>, <&kp KP_N9>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
-
-ZMK_BEHAVIOR(skp_n0, mod_morph,
-      label = "star_kp_n0";
-      bindings = <&kp STAR>, <&kp KP_N0>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
-
-ZMK_BEHAVIOR(eprcnt, mod_morph,
-      label = "excl_prcnt";
-      bindings = <&kp EXCL>, <&kp PRCNT>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
-
-ZMK_BEHAVIOR(dgrave, mod_morph,
-      label = "dllr_grave";
-      bindings = <&kp DLLR>, <&kp GRAVE>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
-
-ZMK_BEHAVIOR(ggrave, mod_morph,
-      label = "grave_grave";
-      bindings = <&kp GRAVE>, <&kp GRAVE>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
-
-ZMK_BEHAVIOR(bhash, mod_morph,
-      label = "bslsh_hash";
-      bindings = <&kp BSLH>, <&kp HASH>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
-
-ZMK_BEHAVIOR(acaret, mod_morph,
-      label = "at_caret";
-      bindings = <&kp AT>, <&kp CARET>;
-      mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
-)
-
-
-/* remove unused keys from layout and move thumb cluster to bottom */
-/ { chosen { zmk,matrix_transform = &urobs_transform; }; };
-
-ZMK_LAYER(default_layer,
-    bindings = <
-        &ppipe    &pkp_n1   &lkp_n2   &lkp_n3   &lkp_n4   &akp_n5   &tog KEYPAD        &mo MOD      &ekp_n6     &rkp_n7   &rkp_n8     &rkp_n9    &skp_n0     &eprcnt
-        &kp TAB   &kp Q     &kp W     &kp F     &kp P     &kp B     &kp HOME           &kp END      &kp J       &kp L     &kp U       &kp Y      &kp MINUS   &bhash
-        &kp ESC   &kp A     &kp R     &kp S     &kp T     &kp G     &kp APOS           &tog MS      &kp M       &kp N     &kp E       &kp I      &kp O       &kp SEMI
-        &kp LSHFT &kp Z     &kp X     &kp C     &kp D     &kp V                                     &kp K       &kp H     &kp COMMA   &kp DOT    &caps_word  &kp RSHFT
-        &mo FN    &dgrave   &ggrave   &kp LEFT  &kp RIGHT                                                       &kp UP    &kp DOWN    &kp FSLH   &acaret     &mo FN
-                                                          &kp LCTRL &kp LALT           &kp LGUI     &kp RCTRL
-                                                &kp BSPC  &kp LSHFT &kp RWIN           &kp PG_UP    &kp ENTER   &kp SPACE
-                                                                    &MO_TOG(VIMNAV)    &kp PG_DN
-    )
-
-ZMK_LAYER(vimnav,
-    bindings = <
-        ___       &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    ___                ___                 &kp N6        &kp N7    &kp N8    &kp N9    &kp N0    ___
-        ___       ___       ___       ___       ___       &kp INS   ___                &kp PRINTSCREEN     &kp TILDE     &none     &kp U     &kp Y     ___       ___
-        ___       ___       ___       ___       ___       &kp DEL   ___                ___                 &none         &kp H     &kp J     &kp K     &kp L     ___
-        ___       ___       ___       ___       ___       ___                                              &none         &none     ___       ___       ___       ___
-        ___       ___       ___       ___       ___                                                                      ___       ___       ___       ___       ___
-                                                          ___       ___                ___       ___
-                                                ___       ___       ___                ___       ___        ___       ___
-                                                                    ___                ___
-)
-
-ZMK_LAYER(keypad {
-    bindings = <
-        ___       &kp N1      &kp N2            &kp N3         &kp N4      &kp N5    ___            &mo MOD   &kp N6  &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp MINUS
-        ___       ___         ___               ___            ___         ___       ___            ___       &none   &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MINUS     ___
-        ___       &kp C_MUTE  &kp C_VOL_DN      &kp C_VOL_UP   ___         ___       ___            ___       &none   &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      ___
-        ___       &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_STOP     &kp C_NEXT                                     &none   &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     ___
-        ___       ___       ___       ___       ___                                                                   ___         ___           &kp KP_DOT     ___              ___
-                                                                           ___       ___            ___       ___
-                                                                 ___       ___       ___            ___       ___     &kp KP_N0
-                                                                                     ___            ___
-    )
-
-ZMK_LAYER(fn {
-    bindings = <
-        &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6    &tog QWERTY      ___       &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
-        ___       ___       ___       ___       ___       ___       &none            ___       ___       ___       ___       ___       ___       ___
-        ___       ___       ___       ___       ___       ___       &none            ___       ___       ___       ___       ___       ___       ___
-        ___       ___       ___       ___       ___       ___                                  ___       ___       ___       ___       ___       ___
-        ___       ___       ___       ___       ___                                                      ___       ___       ___       ___       ___
-                                                          ___       ___              ___       ___
-                                                ___       ___       ___              ___       ___       ___
-                                                                    ___              ___
-    )
-
-ZMK_LAYER(mod,
-    bindings = <
-        &none       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none            ___          &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none
-        &none       &none        &none        &none        &none        &none        &bootloader      &bootloader  &none        &none        &none        &none        &none        &none
-        &none       &none        &none        &none        &none        &none        &none            &none        &none        &none        &none        &none        &none        &none
-        &none       &none        &none        &none        &none        &none                                      &none        &none        &none        &none        &none        &none
-        &none       &none        &none        &bl BL_INC   &bl BL_DEC                                                           &bl BL_INC   &bl BL_DEC   &none        &none        &none
-                                                                        &bt BT_CLR   &bt BT_CLR       &bt BT_CLR  &bt BT_CLR
-                                                           &none        &bl BL_TOG   &none            &none       &bl BL_TOG    &none
-                                                                                     &reset           &none
-    )
-
-ZMK_LAYER(mouse,
-    bindings = <
-        &none       &none       &none       &none     &none     &none     &tog KEYPAD     &mo MOD   &none        &none     &none     &none     &none     &none
-        &none       &none       &none       &none     &none     &none     &kp HOME        &kp END   &none        &none     &none     &none     &none     &none
-        &none       U_WH_L      U_WH_D      U_WH_U    U_WH_R    &none     &tog COLEMAK    &tog MS   &none        U_MS_L    U_MS_D    U_MS_U    U_MS_R    &none
-        &none       &none       U_BTN3      U_BTN2    U_BTN1    &none                               &none        U_BTN1    U_BTN2    U_BTN3    &none     &none
-        &none       &none       &none       U_MS_L    U_MS_R                                                     U_MS_U    U_MS_D    &none     &none     &none
-                                                                U_BTN3    &none           &none     U_BTN3
-                                                      U_BTN1    U_BTN2    U_WH_L          U_WH_U    U_BTN2       U_BTN1
-                                                                          U_WH_R          U_WH_D
-    )
-
-ZMK_LAYER(qwerty,
-        &kp EQUAL &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &tog KEYPAD    &mo MOD      &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS
-        &kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp T     &none          &tog MS      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
-        &kp ESC   &kp A     &kp S     &kp D     &kp F     &kp G     &none          &tog QWERTY  &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
-        &kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B                                 &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &kp RSHFT
-        &mo FN    &kp GRAVE &kp CAPS  &kp LEFT  &kp RIGHT                                                 &kp UP    &kp DOWN  &kp LBKT  &kp RBKT  &mo FN
-                                                          &kp LCTRL &kp LALT       &kp LGUI     &kp RCTRL
-                                                &kp BSPC  &kp DEL   &kp HOME       &kp PG_UP    &kp ENTER &kp SPACE
-                                                                    &kp END        &kp PG_DN
-    )
+};
 
