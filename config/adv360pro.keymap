@@ -171,7 +171,7 @@
                 &mo FN    &dgrave   &ggrave   &kp LEFT  &kp RIGHT                                                       &kp UP    &kp DOWN    &kp FSLH   &acaret     &mo FN
                                                                   &kp LCTRL &kp LALT           &kp LGUI     &kp RCTRL
                                                         &kp BSPC  &kp LSHFT &kp RWIN           &kp PG_UP    &kp ENTER   &kp SPACE
-                                                                            &MO_TOG(VIMNAV)    &kp PG_DN
+                                                                            MO_TOG(VIMNAV)     &kp PG_DN
             >;
         };
 
