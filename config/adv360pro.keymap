@@ -12,6 +12,9 @@
 /* definitions for mouse layer */
 #include "mouse.dtsi"
 
+/* hepler functions */
+#include "../zmk-nodefree-config/helper.h"
+
 #define ___ &trans
 
 #define COLEMAK 0
@@ -124,7 +127,7 @@ ZMK_BEHAVIOR(acaret, mod_morph,
     keymap {
         compatible = "zmk,keymap";
 
-        base_layer {
+        ZMK_LAYER(default_layer,
             bindings = <
                 &ppipe    &pkp_n1   &lkp_n2   &lkp_n3   &lkp_n4   &akp_n5   &tog KEYPAD        &mo MOD      &ekp_n6     &rkp_n7   &rkp_n8     &rkp_n9    &skp_n0     &eprcnt
                 &kp TAB   &kp Q     &kp W     &kp F     &kp P     &kp B     &kp HOME           &kp END      &kp J       &kp L     &kp U       &kp Y      &kp MINUS   &bhash
@@ -134,7 +137,7 @@ ZMK_BEHAVIOR(acaret, mod_morph,
                                                                   &kp LCTRL &kp LALT           &kp LGUI     &kp RCTRL
                                                         &kp BSPC  &kp LSHFT &kp RWIN           &kp PG_UP    &kp ENTER   &kp SPACE
                                                                             &MO_TOG(VIMNAV)    &kp PG_DN
-            >;
+            )
         };
 
         ZMK_LAYER(vimnav,
