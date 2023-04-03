@@ -13,7 +13,7 @@
 #include "mouse.dtsi"
 
 /* hepler functions */
-#include "../zmk-nodefree-config/helper.h"
+// #include "../zmk-nodefree-config/helper.h"
 
 #define ___ &trans
 
