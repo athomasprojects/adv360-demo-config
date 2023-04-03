@@ -5,6 +5,10 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/backlight.h>
 
+/* leds and backlights */
+#include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/backlight.h>
+
 /* definitions for mouse layer */
 #include "mouse.dtsi"
 
@@ -17,7 +21,6 @@
 #define MOD 4
 #define MS 5
 #define QWERTY 6
-
 
 ZMK_BEHAVIOR(mo_tog, hold_tap,
         flavor = "hold-preferred";
@@ -110,9 +113,7 @@ ZMK_BEHAVIOR(acaret, mod_morph,
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-
 #define MO_TOG(layer) &mo_tog layer base_layer
-
 
 / {
     /* remove unused keys from layout and move thumb cluster to bottom */
@@ -136,7 +137,7 @@ ZMK_BEHAVIOR(acaret, mod_morph,
             >;
         };
 
-        vimnav_layer {
+        ZMK_LAYER(vimnav,
             bindings = <
                 ___       &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    ___                ___                 &kp N6        &kp N7    &kp N8    &kp N9    &kp N0    ___
                 ___       ___       ___       ___       ___       &kp INS   ___                &kp PRINTSCREEN     &kp TILDE     &none     &kp U     &kp Y     ___       ___
@@ -146,8 +147,7 @@ ZMK_BEHAVIOR(acaret, mod_morph,
                                                                   ___       ___                ___       ___
                                                         ___       ___       ___                ___       ___        ___       ___
                                                                             ___                ___
-            >;
-        };
+        )
 
         keypad {
             bindings = <
@@ -201,8 +201,7 @@ ZMK_BEHAVIOR(acaret, mod_morph,
             >;
         };
 
-        qwerty_layer {
-            bindings = <
+        ZMK_LAYER(qwerty,
                 &kp EQUAL &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &tog KEYPAD    &mo MOD      &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS
                 &kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp T     &none          &tog MS      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
                 &kp ESC   &kp A     &kp S     &kp D     &kp F     &kp G     &none          &tog QWERTY  &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT
@@ -211,7 +210,7 @@ ZMK_BEHAVIOR(acaret, mod_morph,
                                                                   &kp LCTRL &kp LALT       &kp LGUI     &kp RCTRL
                                                         &kp BSPC  &kp DEL   &kp HOME       &kp PG_UP    &kp ENTER &kp SPACE
                                                                             &kp END        &kp PG_DN
-            >;
+            )
         };
 
     };
