@@ -166,12 +166,12 @@
             bindings = <
                 &ppipe    &pkp_n1   &lkp_n2   &lkp_n3   &lkp_n4   &akp_n5   &tog KEYPAD        &mo MOD      &ekp_n6     &rkp_n7   &rkp_n8     &rkp_n9    &skp_n0     &eprcnt
                 &kp TAB   &kp Q     &kp W     &kp F     &kp P     &kp B     &kp HOME           &kp END      &kp J       &kp L     &kp U       &kp Y      &kp MINUS   &bhash
-                &kp ESC   &kp A     &kp R     &kp S     &kp T     &kp G     &kp APOS           &tog MS      &kp M       &kp N     &kp E       &kp I      &kp O       &kp SEMI
+                &kp ESC   &kp A     &kp R     &kp S     &kp T     &kp G     &kp APOS           &tog VIMNAV  &kp M       &kp N     &kp E       &kp I      &kp O       &kp SEMI
                 &kp LSHFT &kp Z     &kp X     &kp C     &kp D     &kp V                                     &kp K       &kp H     &kp COMMA   &kp DOT    &caps_word  &kp RSHFT
                 &mo FN    &dgrave   &ggrave   &kp LEFT  &kp RIGHT                                                       &kp UP    &kp DOWN    &kp FSLH   &acaret     &mo FN
                                                                   &kp LCTRL &kp LALT           &kp LGUI     &kp RCTRL
                                                         &kp BSPC  &kp LSHFT &kp RWIN           &kp PG_UP    &kp ENTER   &kp SPACE
-                                                                            MO_TOG(VIMNAV)     &kp PG_DN
+                                                                            &mo_tog VIMNAV MS  &kp PG_DN
             >;
         };
 
@@ -229,14 +229,14 @@
 
         mouse {
             bindings = <
-                &none       &none       &none       &none     &none     &none     &tog KEYPAD     &mo MOD   &none        &none     &none     &none     &none     &none
-                &none       &none       &none       &none     &none     &none     &kp HOME        &kp END   &none        &none     &none     &none     &none     &none
-                &none       U_WH_L      U_WH_D      U_WH_U    U_WH_R    &none     &tog COLEMAK    &tog MS   &none        U_MS_L    U_MS_D    U_MS_U    U_MS_R    &none
-                &none       &none       U_BTN3      U_BTN2    U_BTN1    &none                               &none        U_BTN1    U_BTN2    U_BTN3    &none     &none
-                &none       &none       &none       U_MS_L    U_MS_R                                                     U_MS_U    U_MS_D    &none     &none     &none
-                                                                        U_BTN3    &none           &none     U_BTN3
-                                                              U_BTN1    U_BTN2    U_WH_L          U_WH_U    U_BTN2       U_BTN1
-                                                                                  U_WH_R          U_WH_D
+                &none       &none       &none       &none     &none     &none     &tog KEYPAD        &mo MOD      &none        &none     &none     &none     &none     &none
+                &none       &none       &none       &none     &none     &none     &kp HOME           &kp END      &none        &none     &none     &none     &none     &none
+                &none       U_WH_L      U_WH_D      U_WH_U    U_WH_R    &none     &none              &tog VIMNAV  &none        U_MS_L    U_MS_D    U_MS_U    U_MS_R    &none
+                &none       &none       U_BTN3      U_BTN2    U_BTN1    &none                                     &none        U_BTN1    U_BTN2    U_BTN3    &none     &none
+                &none       &none       &none       U_MS_L    U_MS_R                                                           U_MS_U    U_MS_D    &none     &none     &none
+                                                                        U_BTN3    &none              &none        U_BTN3
+                                                              U_BTN1    U_BTN2    U_WH_L             U_WH_U       U_BTN2       U_BTN1
+                                                                                  &mo_tog VIMNAV MS  U_WH_D
             >;
         };
 
