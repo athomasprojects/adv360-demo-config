@@ -18,98 +18,100 @@
 #define MS 5
 #define QWERTY 6
 
-#define MO_TOG(layer) &mo_tog layer layer
 
-ZMK_BEHAVIOR(mo_tog, behavior-hold-tap,
+ZMK_BEHAVIOR(mo_tog, hold_tap,
         flavor = "hold-preferred";
         tapping-term-ms = <200>;
         bindings = <&mo>, <&tog>;
 )
 
-ZMK_BEHAVIOR(gpipe, behavior-mod-morph,
+ZMK_BEHAVIOR(gpipe, mod_morph,
       bindings = <&kp GRAVE>, <&kp PIPE>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
   )
 
-ZMK_BEHAVIOR(ppipe, behavior-mod-morph,
+ZMK_BEHAVIOR(ppipe, mod_morph,
       bindings = <&kp PIPE>, <&kp PIPE>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_BEHAVIOR(pkp_n1, behavior-mod-morph,
+ZMK_BEHAVIOR(pkp_n1, mod_morph,
       bindings = <&kp PLUS>, <&kp KP_N1>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_BEHAVIOR(lkp_n2, behavior-mod-morph,
+ZMK_BEHAVIOR(lkp_n2, mod_morph,
       bindings = <&kp LEFT_BRACKET>, <&kp KP_N2>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_BEHAVIOR(lkp_n3, behavior-mod-morph,
+ZMK_BEHAVIOR(lkp_n3, mod_morph,
       bindings = <&kp LEFT_BRACE>, <&kp KP_N3>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_BEHAVIOR(lkp_n4, behavior-mod-morph,
+ZMK_BEHAVIOR(lkp_n4, mod_morph,
       bindings = <&kp LEFT_PARENTHESIS>, <&kp KP_N4>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_BEHAVIOR(akp_n5, behavior-mod-morph,
+ZMK_BEHAVIOR(akp_n5, mod_morph,
       bindings = <&kp AMPS>, <&kp KP_N5>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_BEHAVIOR(ekp_n6, behavior-mod-morph,
+ZMK_BEHAVIOR(ekp_n6, mod_morph,
       bindings = <&kp EQUAL>, <&kp KP_N6>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_BEHAVIOR(rkp_n7, behavior-mod-morph,
+ZMK_BEHAVIOR(rkp_n7, mod_morph,
       bindings = <&kp RIGHT_PARENTHESIS>, <&kp KP_N7>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_BEHAVIOR(rkp_n8, behavior-mod-morph,
+ZMK_BEHAVIOR(rkp_n8, mod_morph,
       bindings = <&kp RIGHT_BRACE>, <&kp KP_N8>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_BEHAVIOR(rkp_n9, behavior-mod-morph,
+ZMK_BEHAVIOR(rkp_n9, mod_morph,
       bindings = <&kp RIGHT_BRACKET>, <&kp KP_N9>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_BEHAVIOR(skp_n0, behavior-mod-morph,
+ZMK_BEHAVIOR(skp_n0, mod_morph,
       bindings = <&kp STAR>, <&kp KP_N0>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_BEHAVIOR(eprcnt, behavior-mod-morph,
+ZMK_BEHAVIOR(eprcnt, mod_morph,
       bindings = <&kp EXCL>, <&kp PRCNT>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_BEHAVIOR(dgrave, behavior-mod-morph,
+ZMK_BEHAVIOR(dgrave, mod_morph,
       bindings = <&kp DLLR>, <&kp GRAVE>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_BEHAVIOR(ggrave, behavior-mod-morph,
+ZMK_BEHAVIOR(ggrave, mod_morph,
       bindings = <&kp GRAVE>, <&kp GRAVE>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_BEHAVIOR(bhash, behavior-mod-morph,
+ZMK_BEHAVIOR(bhash, mod_morph,
       bindings = <&kp BSLH>, <&kp HASH>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
 
-ZMK_BEHAVIOR(acaret, behavior-mod-morph,
+ZMK_BEHAVIOR(acaret, mod_morph,
       bindings = <&kp AT>, <&kp CARET>;
       mods = <(MOD_LGUI|MOD_LSFT|MOD_RSFT)>;
 )
+
+
+#define MO_TOG(layer) &mo_tog layer base_layer
 
 
 / {
