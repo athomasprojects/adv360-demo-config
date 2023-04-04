@@ -193,7 +193,7 @@
                 ___       &kp N1      &kp N2            &kp N3         &kp N4      &kp N5    ___            &mo MOD   &kp N6  &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp MINUS
                 ___       ___         ___               ___            ___         ___       ___            ___       &none   &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MINUS     ___
                 ___       &kp C_MUTE  &kp C_VOL_DN      &kp C_VOL_UP   ___         ___       ___            ___       &none   &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      ___
-                ___       &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_STOP     &kp C_NEXT                                             &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     ___
+                ___       &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_STOP     &kp C_NEXT                                     &none   &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     ___
                 ___       ___       ___       ___       ___                                                                   ___         ___           &kp KP_DOT     ___              ___
                                                                                    ___       ___            ___       ___
                                                                          ___       ___       ___            ___       ___     &kp KP_N0
