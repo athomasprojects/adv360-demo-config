@@ -169,16 +169,16 @@
                 &kp ESC   &kp A     &kp S     &kp D     &kp F     &kp G     &kp APOS           &tog VIMNAV  &kp P       &kp H     &kp J       &kp K      &kp L       &kp SEMI
                 &kp LSHFT &kp Z     &kp X     &kp C     &kp V     &kp B                                     &kp N       &kp M     &kp COMMA   &kp DOT    &caps_word  &kp RSHFT
                 &mo FN    &dgrave   &ggrave   &kp LEFT  &kp RIGHT                                                       &kp UP    &kp DOWN    &kp FSLH   &acaret     &mo FN
-                                                                  &kp LCTRL &kp LALT       &kp LGUI     &kp RCTRL
-                                                        &kp BSPC  &kp LSHFT &kp RWIN       &kp PG_UP    &kp ENTER &kp SPACE
-                                                                            &mo_tog VIMNAV &kp PG_DN
+                                                                  &kp LCTRL &kp LALT          &kp LGUI     &kp RCTRL
+                                                        &kp BSPC  &kp LSHFT &kp RWIN          &kp PG_UP    &kp ENTER &kp SPACE
+                                                                            &mo_tog VIMNAV MS &kp PG_DN
             >;
         };
 
         vimnav_layer {
             bindings = <
                 ___       &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    ___                ___                 &kp N6        &kp N7    &kp N8    &kp N9    &kp N0    ___
-                ___       ___       ___       ___       ___       ___       &kp INS            &kp PRINTSCREEN     &kp TILDE     &none     &kp U     &kp Y     ___       ___
+                ___       ___       ___       ___       ___       ___       &kp INS            &kp PRINTSCREEN     &kp TILDE     ___       ___       ___       ___       ___
                 ___       ___       ___       ___       ___       ___       &kp DEL            ___                 &none         &kp H     &kp J     &kp K     &kp L     ___
                 ___       ___       ___       ___       ___       ___                                              &none         &none     ___       ___       ___       ___
                 ___       ___       ___       ___       ___                                                                      ___       ___       ___       ___       ___
