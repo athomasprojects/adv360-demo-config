@@ -12,6 +12,7 @@
 #define ___ &trans
 
 #define MO_TOG(layer) &mo_tog layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
+#define LT(layer) &lt layer // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
 
 / {
 
@@ -163,11 +164,11 @@
 
         base_layer {
             bindings = <
-                &ppipe    &pkp_n1          &lkp_n2          &lkp_n3   &lkp_n4   &akp_n5   &tog KEYPAD            &mo MOD       &ekp_n6     &rkp_n7      &rkp_n8     &rkp_n9    &skp_n0     &eprcnt
-                &kp TAB   &kp Q            &kp W            &kp F     &kp P     &kp B     &kp HOME               &kp END       &kp J       &kp L        &kp U       &kp Y      &kp MINUS   &bhash
-                &kp ESC   &kp A            &kp R            &kp S     &mt LALT T &kp G    &kp APOS               &tog VIMNAV   &kp M       &mt LALT N   &kp E       &kp I      &kp O       &kp SEMI
-                &kp LSHFT &lt Z VIMNAV     &lt X KEYPAD     &kp C     &kp D     &kp V                            &kp K       &lt H KEYPAD &kp COMMA   &kp DOT    &caps_word  &kp RSHFT
-                &mo FN    &dgrave   &ggrave   &kp LEFT  &kp RIGHT                                                            &kp UP       &kp DOWN    &kp FSLH   &acaret     &tog FN
+                &ppipe    &pkp_n1          &lkp_n2          &lkp_n3   &lkp_n4    &akp_n5   &tog KEYPAD            &mo MOD       &ekp_n6       &rkp_n7      &rkp_n8     &rkp_n9     &skp_n0     &eprcnt
+                &kp TAB   &kp Q            &kp W            &kp F     &kp P      &kp B     &kp HOME               &kp END       &kp J         &kp L        &kp U       &kp Y       &kp MINUS   &bhash
+                &kp ESC   &kp A            &kp R            &kp S     &mt LALT T &kp G     &kp APOS               &tog VIMNAV   &kp M         &mt LALT N   &kp E       &kp I       &kp O       &kp SEMI
+                &kp LSHFT &lt Z VIMNAV     &lt X KEYPAD     &kp C     &kp D      &kp V                                          &kp K         &lt KEYPAD H &kp COMMA   &kp DOT     &caps_word  &kp RSHFT
+                &mo FN    &dgrave   &ggrave   &kp LEFT  &kp RIGHT                                                                             &kp UP       &kp  DOWN   &kp FSLH    &acaret     &tog FN
                                                                   &kp LCTRL &kp LALT               &kp LGUI     &kp RCTRL
                                                         &kp BSPC  &kp LSHFT &kp RWIN               &kp PG_UP    &kp ENTER   &kp SPACE
                                                                             &mo_tog VIMNAV KEYPAD  &kp PG_DN
@@ -189,11 +190,11 @@
 
         keypad {
             bindings = <
-                ___       ___         ___              ___            ___         ___       ___       ___    ___        &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MINUS     ___
-                ___       ___         &kp LPAR     &kp RPAR  &kp AMPS    ___       ___       ___    &kp UP     &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MULTIPLY  ___
-                ___       &kp EQUAL   &kp LBKT     &kp RBKT  &kp TILDE   ___       ___       ___    &kp DOWN   &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      ___
-                ___       ___         &kp LBRC     &kp RBRC  ___         ___                        ___        &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     ___
-                ___       ___       ___       ___       ___                                                             &kp KP_N0   &kp KP_DOT    &kp FSLSH      ___              ___
+                ___       ___            ___          ___       ___         ___       ___       ___    ___          &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MINUS     ___
+                ___       &kp KP_NUM     &kp LPAR     &kp RPAR  &kp AMPS    ___       ___       ___    &kp UP       &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MULTIPLY  ___
+                ___       &kp KP_EQUAL   &kp LBKT     &kp RBKT  &kp TILDE   ___       ___       ___    &kp DOWN     &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      ___
+                ___       ___            &kp LBRC     &kp RBRC  ___         ___                        &kp KP_EQUAL &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     ___
+                ___       ___       ___       ___       ___                                                      &kp KP_N0   &kp KP_DOT    &kp KP_DIVIDE  ___              ___
                                                                   ___       ___              ___       ___
                                                         ___       ___       ___              ___       ___    ___
                                                                             ___              ___
