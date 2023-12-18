@@ -190,9 +190,9 @@
         keypad {
             bindings = <
                 ___       ___         ___              ___            ___         ___       ___       ___    ___        &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MINUS     ___
-                ___       ___         &kp LEFT_PAR     &kp RIGHT_PAR  &kp AMPS    ___       ___       ___    &kp UP     &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MULTIPLY  ___
-                ___       &kp EQUAL   &kp LEFT_BKT     &kp RIGHT_BKT  &kp TILDE   ___       ___       ___    &kp DOWN   &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      ___
-                ___       ___         &kp LEFT_BRC     &kp RIGHT_BRC  ___         ___                        ___        &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     ___
+                ___       ___         &kp LPAR     &kp RPAR  &kp AMPS    ___       ___       ___    &kp UP     &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MULTIPLY  ___
+                ___       &kp EQUAL   &kp LBKT     &kp RBKT  &kp TILDE   ___       ___       ___    &kp DOWN   &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      ___
+                ___       ___         &kp LBRC     &kp RBRC  ___         ___                        ___        &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     ___
                 ___       ___       ___       ___       ___                                                             &kp KP_N0   &kp KP_DOT    &kp FSLSH      ___              ___
                                                                   ___       ___              ___       ___
                                                         ___       ___       ___              ___       ___    ___
