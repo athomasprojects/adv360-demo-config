@@ -165,8 +165,8 @@
             bindings = <
                 &ppipe    &pkp_n1   &lkp_n2   &lkp_n3   &lkp_n4   &akp_n5   &tog KEYPAD            &mo MOD      &ekp_n6     &rkp_n7   &rkp_n8     &rkp_n9    &skp_n0     &eprcnt
                 &kp TAB   &kp Q     &kp W     &kp F     &kp P     &kp B     &kp HOME               &kp END      &kp J       &kp L     &kp U       &kp Y      &kp MINUS   &bhash
-                &kp ESC   &kp A     &kp R     &kp S     &kp T     &kp G     &kp APOS               &tog VIMNAV  &kp M       &kp N     &kp E       &kp I      &kp O       &kp SEMI
-                &kp LSHFT &kp Z     &kp X     &kp C     &kp D     &kp V                                         &kp K       &kp H     &kp COMMA   &kp DOT    &caps_word  &kp RSHFT
+                &kp ESC   &kp A     &kp R     &kp S     &mt LALT T &kp G     &kp APOS               &tog VIMNAV  &kp M       &mt LALT N      &kp E       &kp I      &kp O       &kp SEMI
+                &kp LSHFT &lt Z VIMNAV     &lt X KEYPAD     &kp C     &kp D     &kp V                                         &kp K       &kp H     &kp COMMA   &kp DOT    &caps_word  &kp RSHFT
                 &mo FN    &dgrave   &ggrave   &kp LEFT  &kp RIGHT                                                           &kp UP    &kp DOWN    &kp FSLH   &acaret     &mo FN
                                                                   &kp LCTRL &kp LALT               &kp LGUI     &kp RCTRL
                                                         &kp BSPC  &kp LSHFT &kp RWIN               &kp PG_UP    &kp ENTER   &kp SPACE
